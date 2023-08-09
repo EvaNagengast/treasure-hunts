@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧭Treasure Hunts</title>
+    <style>
+      body {
+        background: linear-gradient(
+          136deg,
+          rgb(255, 176, 101) 0%,
+          rgb(239, 241, 102) 100%
+        );
+        cursor: crosshair;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #20101a;
+      }
+
+      h1 {
+        text-align: center;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 70px;
+        margin: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #412135;
+      }
+
+      hr {
+        width: 33%;
+        border: 1px solid #ffe165;
+        margin: 10px auto;
+      }
+
+      p {
+        text-align: center;
+        margin: 10px auto;
+      }
+
+      img {
+        max-width: 100%;
+        border-radius: 6px;
+        filter: grayscale(100%);
+      }
+
+      footer {
+        text-align: center;
+        margin: 15px 0;
+        color: #22a699;
+        font-size: 15px;
+      }
+      /*----------------------Classes---------------------------*/
+      .container {
+        margin: 20px auto;
+        max-width: 600px;
+        background-color: #de4242;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .darkThemeButton {
+        display: block;
+        margin: 0 auto;
+        background-color: #412135;
+        border: 2px solid #412135;
+        border-radius: 10px;
+        color: #ffe165;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        box-shadow: 2px 2px 3px #7c2525;
+        font-size: 15px;
+        padding: 10px;
+        transition: all 150ms ease-in-out;
+      }
+
+      .darkThemeButton:hover {
+        color: #412135;
+        cursor: zoom-in;
+        background-color: #ffe165;
+      }
+
+      .p1 {
+        padding: 10px;
+        font-size: 11px;
+        max-width: 60%;
+        background-color: #98d8aa;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .p2 {
+        text-align: center;
+        font-size: 16px;
+        line-height: 25px;
+        background-color: #98d8aa;
+        max-width: 98%;
+        margin: 10px auto;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        margin: 2px auto;
+      }
+
+      .grid img {
+        width: 100%;
+        height: 110px;
+      }
+      .maps {
+        transition: all 350ms ease-in-out;
+      }
+      .maps:hover {
+        transform: scale(1.07);
+        filter: brightness(180%) saturate(100%);
+      }
+      .deaddrops {
+        transition: all 150ms ease-in-out;
+      }
+      .deaddrops:hover {
+        transform: scale(1.15);
+        filter: brightness(240%) saturate(150%);
+      }
+      .key {
+        transition: all 150ms ease-in-out;
+      }
+      .key:hover {
+        transform: scale(1.15);
+        filter: brightness(200%) saturate(100%);
+      }
+      .book {
+        transition: all 150ms ease-in-out;
+      }
+      .book:hover {
+        transform: scale(1.15);
+        filter: brightness(200%) saturate(100%);
+      }
+      .cipher {
+        transition: all 150ms ease-in-out;
+      }
+      .cipher:hover {
+        transform: scale(1.15);
+        filter: brightness(110%) saturate(120%);
+      }
+
+      .learnMoreButton {
+        display: block;
+        margin: 0 auto;
+        background-color: #de4242;
+        border: 2px solid #84243b;
+        border-radius: 10px;
+        color: #84243b;
+        box-shadow: 2px 2px 3px #84243b;
+        font-size: 15px;
+        padding: 10px;
+        transition: all 150ms ease-in-out;
+      }
+
+      .learnMoreButton:hover {
+        background-color: #84243b;
+        color: #de4242;
+        cursor: zoom-in;
+      }
+      /*----------------------Dark Theme---------------------------*/
+      .darkTheme {
+        background: linear-gradient(
+          136deg,
+          rgb(21, 11, 17) 0%,
+          rgb(69, 42, 59) 100%
+        );
+        color: #ffe165;
+      }
+      .darkTheme .darkThemeButton {
+        background-color: #ffe165;
+        border: 2px solid #ffe165;
+        color: #412135;
+        transition: all 150ms ease-in-out;
+      }
+
+      .darkTheme .darkThemeButton:hover {
+        background-color: #412135;
+        border: 2px solid #ffe165;
+        color: #ffe165;
+      }
+
+      .darkTheme .container {
+        background: #7c2525;
+        color: ;
+      }
+      .darkTheme h2 {
+        color: #1d0f17;
+      }
+
+      .darkTheme p {
+        background: #0a2e2a;
+      }
+      .darkTheme .learnMoreButton {
+        background-color: #7c2525;
+        border: 2px solid #1d0f17;
+        box-shadow: 2px 2px 3px #1a0d11;
+        color: #1d0f17;
+        transition: all 150ms ease-in-out;
+      }
+      .darkTheme .learnMoreButton:hover {
+        background-color: #1d0f17;
+
+        color: #7c2525;
+      }
+
+      .darkTheme footer {
+        color: #17524b;
+      }
+      /*---------------------------------------------------------------*/
+    </style>
+  </head>
+
+  <body>
+    <button class="darkThemeButton">Change Theme</button>
+    <div class="container">
+      <h1>Treasure Hunts</h1>
+      <h2>Codes, Gambits, Cyphers</h2>
+
+      <hr />
+      <p class="p1">
+        click on the pictures below, to learn more about treasure hunts
+      </p>
+      <hr />
+
+      <a href="https://snazzymaps.com/" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/153/original/nadjib-br-51Ms-0PbCHo-unsplash.jpg?1689021613"
+          alt="Build your own treasure map"
+          class="maps"
+        />
+      </a>
+      <div class="grid">
+        <a
+          href="https://lifehacker.com/how-to-plant-a-dead-drop-without-everyone-finding-it-5960359"
+          target="_blank"
+        >
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/323/original/tr.jpg?1689085288"
+            alt="Deaddrops"
+            class="deaddrops"
+          />
+        </a>
+
+        <a
+          href="https://www.treasure-hunt-ideas.co.uk/blog/padlocks-in-a-treasure-hunt"
+          target="_blank"
+        >
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/151/original/michael-dziedzic-1bjsASjhfkE-unsplash.jpg?1689021438"
+            alt="Keys and Locks"
+            class="key"
+          />
+        </a>
+
+        <a
+          href="https://www.boxentriq.com/code-breaking/book-cipher"
+          target="_blank"
+        >
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/322/original/vigenere-cipher-no-highlights-1.jpg?1689084712"
+            alt="Ottendorf Cypher Decoder"
+            class="book"
+          />
+        </a>
+
+        <a href="https://cryptii.com/pipes/caesar-cipher" target="_blank">
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/320/original/vvv.jpg?1689084572"
+            alt="Cesar Cypher encoder"
+            class="cipher"
+        /></a>
+      </div>
+      <p class="p2">
+        Welcome to the captivating world of treasure hunts, where curiosity
+        meets adventure and the unknown awaits discovery. Picture this: a quest
+        filled with enigmatic clues, hidden paths, and a trail that leads to
+        untold treasures. It's a peculiar journey, not for the faint-hearted,
+        but for the intrepid souls who dare to delve into the depths of mystery.
+        <br />
+        <br />
+        In the realm of treasure hunts, intrigue becomes an art form. Like a
+        master detective, you must unravel the secrets that lie in wait, armed
+        only with your wits, determination, and a touch of audacity. With each
+        clue deciphered, the path before you becomes clearer, revealing the
+        wonders that lie just beyond your reach.
+        <br />
+        <br />
+        Embrace the challenge. Embrace the mystery. Are you ready to unlock the
+        secrets that lie beneath the surface? Let the treasure hunt begin, and
+        may your journey be as captivating as the enigmatic tales that inspired
+        it. click on the pictures above to learn more about treaure hunts
+      </p>
+      <button class="learnMoreButton">Learn more</button>
+
+      <p class="learnMoreInfo"></p>
+    </div>
+    <footer>Coded with Love - by Eva Nagengast</footer>
+
+    <script>
+      /*----------------------Dark Theme--------------------------*/
+
+      function changeToDarkTheme() {
+        let darkThemeBody = document.querySelector("body");
+
+        if (darkThemeBody.classList.contains("darkTheme")) {
+          darkThemeBody.classList.remove("darkTheme");
+        } else {
+          darkThemeBody.classList.add("darkTheme");
+        }
+      }
+
+      let darkThemeButton = document.querySelector(".darkThemeButton");
+
+      darkThemeButton.addEventListener("click", changeToDarkTheme);
+
+      /*----------------------learn more---------------------------*/
+
+      function learnMoreLine() {
+        let learnMoreInfo = document.querySelector(".learnMoreInfo");
+
+        learnMoreInfo.innerHTML =
+          "To learn more, click on <a href='https://www.wikihow.com/Make-a-Treasure-Hunt' target='_blank'>this link</a>";
+
+        let link = learnMoreInfo.querySelector("a");
+        link.style.color = "#1d0f17";
+      }
+
+      let learnMoreButton = document.querySelector(".learnMoreButton");
+      learnMoreButton.addEventListener("click", learnMoreLine);
+    </script>
+  </body>
+</html>
